@@ -1,0 +1,24 @@
+{
+  "name": "assignment-unit4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyanshuanany/Assignment-unit4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyanshuanany/Assignment-unit4/issues"
+  },
+  "homepage": "https://github.com/priyanshuanany/Assignment-unit4#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

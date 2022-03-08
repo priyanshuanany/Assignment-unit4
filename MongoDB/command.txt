@@ -1,0 +1,301 @@
+1.  use assignment ---- for making the database
+
+2.  db ------ for checking in which database i am
+
+3.  db.createCollection("users")  -------for creating collection in databases
+
+4.  db.users.insertMany([{"first_name":"raj","last_name":"shekhar","email":"shekhar@hmail.com","gender":"male","age":24,"ip_address":136455}]) -- for insserting too many data
+            {
+                    "acknowledged" : true,
+                    "insertedIds" : [
+                            ObjectId("6227862fdebba75d37c457b1")
+                    ]
+            }
+
+
+5.  I do upper command 10 times for entering 10 documents
+
+
+6.  db.users.find({}).pretty() ---  for seeing all documents
+            {
+                    "_id" : ObjectId("622784cbdebba75d37c457a7"),
+                    "first_name" : "john",
+                    "last_name" : "walker",
+                    "email" : "walker@hmail.com",
+                    "gender" : "male",
+                    "age" : 23,
+                    "ip_address" : 556875
+            }
+            {
+                    "_id" : ObjectId("622784eddebba75d37c457a8"),
+                    "first_name" : "sneha",
+                    "last_name" : "katy",
+                    "email" : "katy@hmail.com",
+                    "gender" : "female",
+                    "age" : 29,
+                    "ip_address" : 555646
+            }
+            {
+                    "_id" : ObjectId("62278509debba75d37c457a9"),
+                    "first_name" : "fatehi",
+                    "last_name" : "lora",
+                    "email" : "lora@hmail.com",
+                    "gender" : "female",
+                    "age" : 28,
+                    "ip_address" : 555456
+            }
+            {
+                    "_id" : ObjectId("62278527debba75d37c457aa"),
+                    "first_name" : "sonakshi",
+                    "last_name" : "dev",
+                    "email" : "dev@hmail.com",
+                    "gender" : "female",
+                    "age" : 38,
+                    "ip_address" : 553455
+            }
+            {
+                    "_id" : ObjectId("6227855fdebba75d37c457ab"),
+                    "first_name" : "sinha",
+                    "last_name" : "saxena",
+                    "email" : "saxena@hmail.com",
+                    "gender" : "male",
+                    "age" : 32,
+                    "ip_address" : 95555
+            }
+            {
+                    "_id" : ObjectId("62278582debba75d37c457ac"),
+                    "first_name" : "rishabh",
+                    "last_name" : "sharma",
+                    "email" : "sharma@hmail.com",
+                    "gender" : "male",
+                    "age" : 22,
+                    "ip_address" : 676315
+            }
+            {
+                    "_id" : ObjectId("62278595debba75d37c457ad"),
+                    "first_name" : "Priyanshu",
+                    "last_name" : "sharma",
+                    "email" : "sharma@hmail.com",
+                    "gender" : "male",
+                    "age" : 25,
+                    "ip_address" : 676975
+            }
+            {
+                    "_id" : ObjectId("622785b5debba75d37c457ae"),
+                    "first_name" : "Priyanshu",
+                    "last_name" : "sharma",
+                    "email" : "sharma@hmail.com",
+                    "gender" : "male",
+                    "age" : 25,
+                    "ip_address" : 676975
+            }
+            {
+                    "_id" : ObjectId("622785fadebba75d37c457af"),
+                    "first_name" : "rakesh",
+                    "last_name" : "rajan",
+                    "email" : "rajan@hmail.com",
+                    "gender" : "male",
+                    "age" : 35,
+                    "ip_address" : 676555
+            }
+            {
+                    "_id" : ObjectId("62278615debba75d37c457b0"),
+                    "first_name" : "varun",
+                    "last_name" : "shahi",
+                    "email" : "shahi@hmail.com",
+                    "gender" : "male",
+                    "age" : 24,
+                    "ip_address" : 8235455
+            }
+            {
+                    "_id" : ObjectId("6227862fdebba75d37c457b1"),
+                    "first_name" : "raj",
+                    "last_name" : "shekhar",
+                    "email" : "shekhar@hmail.com",
+                    "gender" : "male",
+                    "age" : 24,
+                    "ip_address" : 136455
+            }
+
+
+
+7. > db.users.find()
+            { "_id" : ObjectId("622784cbdebba75d37c457a7"), "first_name" : "john", "last_name" : "walker", "email" : "walker@hmail.com", "gender" : "male", "age" : 23, "ip_address" : 556875 }
+            { "_id" : ObjectId("622784eddebba75d37c457a8"), "first_name" : "sneha", "last_name" : "katy", "email" : "katy@hmail.com", "gender" : "female", "age" : 29, "ip_address" : 555646 }
+            { "_id" : ObjectId("62278509debba75d37c457a9"), "first_name" : "fatehi", "last_name" : "lora", "email" : "lora@hmail.com", "gender" : "female", "age" : 28, "ip_address" : 555456 }
+            { "_id" : ObjectId("62278527debba75d37c457aa"), "first_name" : "sonakshi", "last_name" : "dev", "email" : "dev@hmail.com", "gender" : "female", "age" : 38, "ip_address" : 553455 }
+            { "_id" : ObjectId("6227855fdebba75d37c457ab"), "first_name" : "sinha", "last_name" : "saxena", "email" : "saxena@hmail.com", "gender" : "male", "age" : 32, "ip_address" : 95555 }
+            { "_id" : ObjectId("62278582debba75d37c457ac"), "first_name" : "rishabh", "last_name" : "sharma", "email" : "sharma@hmail.com", "gender" : "male", "age" : 22, "ip_address" : 676315 }
+            { "_id" : ObjectId("62278595debba75d37c457ad"), "first_name" : "Priyanshu", "last_name" : "sharma", "email" : "sharma@hmail.com", "gender" : "male", "age" : 25, "ip_address" : 676975 }
+            { "_id" : ObjectId("622785b5debba75d37c457ae"), "first_name" : "Priyanshu", "last_name" : "sharma", "email" : "sharma@hmail.com", "gender" : "male", "age" : 25, "ip_address" : 676975 }
+            { "_id" : ObjectId("622785fadebba75d37c457af"), "first_name" : "rakesh", "last_name" : "rajan", "email" : "rajan@hmail.com", "gender" : "male", "age" : 35, "ip_address" : 676555 }
+            { "_id" : ObjectId("62278615debba75d37c457b0"), "first_name" : "varun", "last_name" : "shahi", "email" : "shahi@hmail.com", "gender" : "male", "age" : 24, "ip_address" : 8235455 }
+            { "_id" : ObjectId("6227862fdebba75d37c457b1"), "first_name" : "raj", "last_name" : "shekhar", "email" : "shekhar@hmail.com", "gender" : "male", "age" : 24, "ip_address" : 136455 } 
+
+
+
+8.  > db.users.findOne({"age":23})   -----after giving this command it will show the first one which enter bcoz it works like FIFO
+            {
+                    "_id" : ObjectId("622784cbdebba75d37c457a7"),
+                    "first_name" : "john",
+                    "last_name" : "walker",
+                    "email" : "walker@hmail.com",
+                    "gender" : "male",
+                    "age" : 23,
+                    "ip_address" : 556875
+            }
+
+
+
+9.  db.users.update({"age":23},{"age":25}) ---- if we update like this without using set it will replace all the data and age: 25 will be set
+
+  WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+    db.users.findOne({"age":25})
+        { "_id" : ObjectId("622784cbdebba75d37c457a7"), "age" : 25 }
+
+
+
+10. > db.users.updateMany({"age":23},{$set:{"eligible":true}}) ------ updateMany
+            { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+    > db.users.findOne({"first_name":"john"})
+            {
+                    "_id" : ObjectId("622784cbdebba75d37c457a7"),
+                    "first_name" : "john",
+                    "last_name" : "walker",
+                    "email" : "walker@hmail.com",
+                    "gender" : "male",
+                    "age" : 23,
+                    "ip_address" : 556875,
+                    "eligible" : true
+            }
+
+
+11. db.users.updateMany({},{$set:{"country":"india"}})   ------ it will update all
+        { "acknowledged" : true, "matchedCount" : 11, "modifiedCount" : 11 }
+
+
+     db.users.find({}).pretty()
+                {
+                        "_id" : ObjectId("622784cbdebba75d37c457a7"),
+                        "age" : 25,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("622784eddebba75d37c457a8"),
+                        "first_name" : "sneha",
+                        "last_name" : "katy",
+                        "email" : "katy@hmail.com",
+                        "gender" : "female",
+                        "age" : 29,
+                        "ip_address" : 555646,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("62278509debba75d37c457a9"),
+                        "first_name" : "fatehi",
+                        "last_name" : "lora",
+                        "email" : "lora@hmail.com",
+                        "gender" : "female",
+                        "age" : 28,
+                        "ip_address" : 555456,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("62278527debba75d37c457aa"),
+                        "first_name" : "sonakshi",
+                        "last_name" : "dev",
+                        "email" : "dev@hmail.com",
+                        "gender" : "female",
+                        "age" : 38,
+                        "ip_address" : 553455,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("6227855fdebba75d37c457ab"),
+                        "first_name" : "sinha",
+                        "last_name" : "saxena",
+                        "email" : "saxena@hmail.com",
+                        "gender" : "male",
+                        "age" : 32,
+                        "ip_address" : 95555,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("62278582debba75d37c457ac"),
+                        "first_name" : "rishabh",
+                        "last_name" : "sharma",
+                        "email" : "sharma@hmail.com",
+                        "gender" : "male",
+                        "age" : 22,
+                        "ip_address" : 676315,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("62278595debba75d37c457ad"),
+                        "first_name" : "Priyanshu",
+                        "last_name" : "sharma",
+                        "email" : "sharma@hmail.com",
+                        "gender" : "male",
+                        "age" : 25,
+                        "ip_address" : 676975,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("622785b5debba75d37c457ae"),
+                        "first_name" : "Priyanshu",
+                        "last_name" : "sharma",
+                        "email" : "sharma@hmail.com",
+                        "gender" : "male",
+                        "age" : 25,
+                        "ip_address" : 676975,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("622785fadebba75d37c457af"),
+                        "first_name" : "rakesh",
+                        "last_name" : "rajan",
+                        "email" : "rajan@hmail.com",
+                        "gender" : "male",
+                        "age" : 35,
+                        "ip_address" : 676555,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("62278615debba75d37c457b0"),
+                        "first_name" : "varun",
+                        "last_name" : "shahi",
+                        "email" : "shahi@hmail.com",
+                        "gender" : "male",
+                        "age" : 24,
+                        "ip_address" : 8235455,
+                        "country" : "india"
+                }
+                {
+                        "_id" : ObjectId("6227862fdebba75d37c457b1"),
+                        "first_name" : "raj",
+                        "last_name" : "shekhar",
+                        "email" : "shekhar@hmail.com",
+                        "gender" : "male",
+                        "age" : 24,
+                        "ip_address" : 136455,
+                        "country" : "india"
+                }
+
+
+12.   db.users.remove({"first_name":"rishabh"})   ------ for removing one document
+          WriteResult({ "nRemoved" : 1 })
+
+
+13.   db.users.deleteOne({"first_name":"raj"})    -------- it will also delete one document which comes first
+       { "acknowledged" : true, "deletedCount" : 1 } 
+
+
+14.   db.users.deleteMany({"age":25})   -------- it will delete all document which meets its criteria
+        { "acknowledged" : true, "deletedCount" : 3 }
+
+
+15.   db.dropDatabase()
+        { "ok" : 1 }
