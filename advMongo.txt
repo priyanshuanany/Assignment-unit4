@@ -1,0 +1,362 @@
+1. count
+
+>>>>> db.movie.count()
+      500
+
+2.  showing only movie_name and production_year
+
+>>>>> > db.movie.find({},{movie_name:1,production_year:1,_id:0}).pretty()
+            { 
+                "movie_name" : "Paradise Now",
+                 "production_year" : "6/9/1996" 
+                 }
+            { 
+                "movie_name" : "Supercross",
+                 "production_year" : "5/27/1993" 
+                 }
+            { 
+                "movie_name" : "Make Your Move",
+                 "production_year" : "7/2/1991" 
+                 }
+            {
+                "movie_name" : "We Are What We Are (Somos lo que hay)",
+                "production_year" : "6/19/1997"
+            }
+            { 
+                "movie_name" : "Road to Wellville, The",
+                 "production_year" : "2/6/1999"
+            }
+            {
+                    "movie_name" : "Lonely Wife, The (Charulata)",
+                    "production_year" : "4/28/1991"
+            }
+            
+3.  find all movies which are equal to movie_name
+
+1st way
+>>>>>  db.movie.find({movie_name:"Biker Boyz"}).pretty()
+
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f33f"),
+        "movie_name" : "Biker Boyz",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : "4/25/1997",
+        "budget" : 9091
+}
+
+2nd way
+>>>>>>  db.movie.find({movie_name:{$eq:"Biker Boyz"}}).pretty()
+
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f33f"),
+        "movie_name" : "Biker Boyz",
+        "movie_genre" : "Action|Crime|Drama",
+        "production_year" : "4/25/1997",
+        "budget" : 9091
+}
+
+4.   find all movies which are not equal to movie_name
+
+>>>>>>  db.movie.find({movie_name:{$ne:"Biker Boyz"}}).pretty()
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f32f"),
+        "movie_name" : "Paradise Now",
+        "movie_genre" : "Crime|Drama|Thriller|War",
+        "production_year" : "6/9/1996",
+        "budget" : 12240
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f330"),
+        "movie_name" : "Supercross",
+        "movie_genre" : "Action",
+        "production_year" : "5/27/1993",
+        "budget" : 14298
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f331"),
+        "movie_name" : "Make Your Move",
+        "movie_genre" : "Musical",
+        "production_year" : "7/2/1991",
+        "budget" : 13861
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f332"),
+        "movie_name" : "We Are What We Are (Somos lo que hay)",
+        "movie_genre" : "Drama|Horror",
+        "production_year" : "6/19/1997",
+        "budget" : 12553
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f333"),
+        "movie_name" : "Road to Wellville, The",
+        "movie_genre" : "Comedy",
+        "production_year" : "2/6/1999",
+        "budget" : 18598
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f334"),
+        "movie_name" : "Lonely Wife, The (Charulata)",
+        "movie_genre" : "Drama|Romance",
+        "production_year" : "4/28/1991",
+        "budget" : 9284
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f335"),
+        "movie_name" : "Meet the Robinsons",
+        "movie_genre" : "Action|Adventure|Animation|Children|Comedy|Sci-Fi",
+        "production_year" : "9/20/1996",
+        "budget" : 15361
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f336"),
+        "movie_name" : "Carry on Cabby",
+        "movie_genre" : "Adventure|Comedy|Romance",
+        "production_year" : "3/2/1991",
+        "budget" : 10441
+}
+
+5.  find all movies greater than and greater than equal to a budget
+
+>>>>> db.movie.find({$and: [{budget:{$gt:18290}},{budget:{$gte:18293}}]}).pretty()
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f333"),
+        "movie_name" : "Road to Wellville, The",
+        "movie_genre" : "Comedy",
+        "production_year" : "2/6/1999",
+        "budget" : 18598
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f33b"),
+        "movie_name" : "Babe Ruth Story, The ",
+        "movie_genre" : "Drama",
+        "production_year" : "3/15/1996",
+        "budget" : 19209
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f342"),
+        "movie_name" : "Beyond the Black Rainbow",
+        "movie_genre" : "Mystery|Sci-Fi",
+        "production_year" : "5/22/1995",
+        "budget" : 18293
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f347"),
+        "movie_name" : "Train, The",
+        "movie_genre" : "Action|Thriller|War",
+        "production_year" : "9/5/1999",
+        "budget" : 18382
+}
+
+6.  find all movies less than and less than equal to a budget
+
+>>>>> db.movie.find({$and: [{budget:{$lt:18290}},{budget:{$lte:18293}}]}).pretty()
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f32f"),
+        "movie_name" : "Paradise Now",
+        "movie_genre" : "Crime|Drama|Thriller|War",
+        "production_year" : "6/9/1996",
+        "budget" : 12240
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f330"),
+        "movie_name" : "Supercross",
+        "movie_genre" : "Action",
+        "production_year" : "5/27/1993",
+        "budget" : 14298
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f331"),
+        "movie_name" : "Make Your Move",
+        "movie_genre" : "Musical",
+        "production_year" : "7/2/1991",
+        "budget" : 13861
+}
+{
+        "_id" : ObjectId("622a0deb7f75463692a9f332"),
+        "movie_name" : "We Are What We Are (Somos lo que hay)",
+        "movie_genre" : "Drama|Horror",
+        "production_year" : "6/19/1997",
+        "budget" : 12553
+}
+
+7.  find all movies that are produced after 2000 with budget greater than 10000
+
+>>>>>   db.movies.find({$and: [{production_year:{$gt:2000}},{budget:{$gt:10000}}]}).pretty()
+
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d093"),
+        "movie_name" : "Adam & Steve",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2002,
+        "budget" : 15197
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d096"),
+        "movie_name" : "Task, The",
+        "movie_genre" : "Horror",
+        "production_year" : 2006,
+        "budget" : 15958
+}
+
+
+8.   find all movies that are produced after 2000 or budget greater than 10000
+
+>>>>>   db.movies.find({$or: [{production_year:{$gt:2000}},{budget:{$gt:10000}}]}).pretty()
+
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d093"),
+        "movie_name" : "Adam & Steve",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2002,
+        "budget" : 15197
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d094"),
+        "movie_name" : "Man Without a Face, The",
+        "movie_genre" : "Drama",
+        "production_year" : 1953,
+        "budget" : 14360
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d095"),
+        "movie_name" : "Putney Swope",
+        "movie_genre" : "Comedy",
+        "production_year" : 1985,
+        "budget" : 14762
+}
+
+
+9.    find all movies that are neither produced after 2000 nor with budget greater than 10000.
+
+>>>>>>   db.movies.find({$nor:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]}).pretty()
+
+
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d0a1"),
+        "movie_name" : "Game of Death II (a.k.a. Tower of Death) (Si wang ta)",
+        "movie_genre" : "Action|Mystery",
+        "production_year" : 1999,
+        "budget" : 9537
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d0a5"),
+        "movie_name" : "Robot Carnival (Roboto kânibauru)",
+        "movie_genre" : "Animation|Comedy|Drama|Fantasy|Sci-Fi",
+        "production_year" : 1998,
+        "budget" : 9349
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d0c0"),
+        "movie_name" : "Courtship of Eddie's Father, The",
+        "movie_genre" : "Comedy",
+        "production_year" : 1993,
+        "budget" : 9094
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d0c6"),
+        "movie_name" : "FernGully 2: The Magical Rescue",
+        "movie_genre" : "Adventure|Animation|Children|Fantasy",
+        "production_year" : 1988,
+        "budget" : 9069
+}
+
+
+10. find all movies that are not produced in 2000 or they do not have budget of 10000
+
+>>>>>  db.movies.find({production_year:{$ne:{$eq:2000}},budget:{$ne:{$eq:10000}}}).pretty()
+
+
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d093"),
+        "movie_name" : "Adam & Steve",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2002,
+        "budget" : 15197
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d094"),
+        "movie_name" : "Man Without a Face, The",
+        "movie_genre" : "Drama",
+        "production_year" : 1953,
+        "budget" : 14360
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d095"),
+        "movie_name" : "Putney Swope",
+        "movie_genre" : "Comedy",
+        "production_year" : 1985,
+        "budget" : 14762
+}
+
+11.  find all movies that were produced from 2000 to 2010.
+
+>>>>>  db.movies.find({$and:[{production_year:{$gte:2000}},{production_year:{$lte:2010}}]}).pretty()
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d093"),
+        "movie_name" : "Adam & Steve",
+        "movie_genre" : "Comedy|Romance",
+        "production_year" : 2002,
+        "budget" : 15197
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d096"),
+        "movie_name" : "Task, The",
+        "movie_genre" : "Horror",
+        "production_year" : 2006,
+        "budget" : 15958
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d097"),
+        "movie_name" : "Lynch",
+        "movie_genre" : "Documentary",
+        "production_year" : 2003,
+        "budget" : 18960
+}
+
+
+
+12.  Sort all movies descending based on the production year and if the year is same then alphabetically for their movie_names
+
+>>>>>  db.movies.find({}).sort({production_year: -1,movie_name: 1}).pretty()
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d1fc"),
+        "movie_name" : "Baron Blood (Orrori del castello di Norimberga, Gli)",
+        "movie_genre" : "Horror",
+        "production_year" : 2013,
+        "budget" : 14921
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d1d4"),
+        "movie_name" : "Hot Saturday",
+        "movie_genre" : "Drama",
+        "production_year" : 2013,
+        "budget" : 11781
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d14a"),
+        "movie_name" : "House II: The Second Story",
+        "movie_genre" : "Comedy|Fantasy|Horror",
+        "production_year" : 2013,
+        "budget" : 13010
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d1d8"),
+        "movie_name" : "Sister My Sister",
+        "movie_genre" : "Drama",
+        "production_year" : 2013,
+        "budget" : 9487
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d09a"),
+        "movie_name" : "Something Borrowed",
+        "movie_genre" : "Comedy|Drama|Romance",
+        "production_year" : 2013,
+        "budget" : 11438
+}
+{
+        "_id" : ObjectId("622a2f2ef50160e67f49d0c2"),
+        "movie_name" : "50/50",
+        "movie_genre" : "Comedy|Drama",
+        "production_year" : 2012,
+        "budget" : 10926
+}
